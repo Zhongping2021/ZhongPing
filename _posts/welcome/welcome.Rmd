@@ -1,8 +1,6 @@
 ---
-title: "Welcome to My Blog for Data Visualisation"
+title: "Data Makeover 1 for Data Visualisation"
 description: |
-  Welcome to our new blog.  
-  
   This is my data makeover 1 for ISSS608
 author:
   - name: ZHONG PING 
@@ -23,5 +21,178 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+In this article, we will rethink and rework a data visualisation of "Merchandise of Trade of Top Six Trading Countries, 2019-2020" provided by prof Kam.
 
+The data is provided by [*Department of Statisticcs, Singapore DOS*](https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data). 
+
+This is the original visualisation:
+![](img/original visualisation.png)
+
+
+
+
+# 1 Critique of Visualization
+
+## 1.1 Clarity
+
+**1.Monetary unit of the value is not clear**
+
+All values and y axis are not labeled with monetary unit. We can't find from the figure whether the unit of the amount is the US dollar, Singapore dollar, or local currency. To avoid uncleanness, It should be marked that all denominated by Singapore dollars.  
+
+**2.X axis scale is not corresponding with data **
+
+The data is monthly export and import value, while the x axis is only marked by year. Although we can infer the x-axis scale is month from the amount of data and the title of x axis, we need to label them more rigorously. Besides, it's better if Japan have the same x axis mark as the rest five graph.
+
+![](img/xprob2.png){width=90%}
+
+**3. Area graph is not the best way**  
+
+The vasualisation is using area graph to show the data of export and import, which is not the best way.The overlapped area charts are very tough to read as the format becomes complex. And in this case, there is a lot overlapped areas.
+
+**4. There is no data source**  
+
+It is always important to mention the source to give reader a understanding of the source of the data, without which the graph would have been meaningless.
+
+## 1.2 Aesthetic
+
+**1.The legend and graph color should be more clear**
+
+It is hard to read the import and export data in graph because the color of them is not that distinguished and the overlapped area is too confused. The color should be more different or the legend should be more clear to mark overlapped area also.
+
+**2.The diffident scale of first and secondary y axis makes its hard to read the balance of trades**
+
+![](img/confused first and secondary y-axis.png)
+
+It is not clear enough to see the difference between export and import, because the axis scale of first and secondary axis is different. For example, if you have a glance at the graph of merchandise trade of Hong Kong, you might think this region's export and import value is quit equal. However the export volume of HK is ten times the import volume.
+
+**3. The graph has no emphasis**
+
+The graph contains all info of six countries but we don't really know the focus of this graph. We should use innovations or colors to emphasize the key parts and delete unnecessary information.
+
+
+#  2 Alternative Design
+## 2.1 draft
+the design is drawn as a draft:
+![](img/draft.jpg){ width=90% }
+
+## 2.2 Improvement
+
+
+**1. Add necessary information**
+
+Edit the title of this visualisation to make it more clear by adding the monetary unit of this chart and the data source.  
+
+**2. Edit Y axis**
+
+Synchronize first and secondary axis for each country, so now it is clearly to find out the deference of export and import data visually. And to compare the data among countries, I fixed Y axis range of six graphs.  
+
+**3. Edit X axis**
+
+Change the display of the x axis by using format "mmm yyy" to show the month year. Delete unnecessary x title..
+
+**4. Change graph type to line chart**
+
+Change the graph to line chart to avoid the confusing overlapped area.  
+
+**5. Add new measure Balance of Trade**
+
+Calculating by "exports-imports", a new measure named "Balance of Trade" is added to visualization. Because it is an important criterion to notice when talking about imports and exports. To clarify trends of BoT, I add a bar chart to show BoT to graph.
+
+**6. Color the graph**
+
+Use yellow and green to color the exports and imports. And to make it more clear to notice the positive or negative of BoT, I color it red when its negative and color it blue while its positive. 
+
+**7. Add annotations**
+
+To help read this graph, I add some annotations to emphasize the key take away of this graph. For example, highlight the consistent negative BoT of Taiwan, and explained this is trade deficit.
+
+
+# 3. Proposed Visualization
+
+In this data make over, the poposed visualisation is posted [here](https://public.tableau.com/app/profile/zhong.ping/viz/zpmakeover1/MerchandiseTradeofTopSixTraingCountriesRegions2019-2020) .  
+
+
+# 4. Step-by-step Guide
+
+**1.Data preparation**
+
+First we download the data from [*DOS*](https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data) and use Excel to do basic data cleansing to find our target data. Here is our cleansed data look like:
+![](img/cleansed data.png)
+There is in total 25 rows, including head, and 13 columns.
+
+**2.Import data to Tableau**
+
+Open Tableau, create a new file and drag our data to the panel.
+![](img/data preparation.png)
+
+**3. Create a basic graph**
+
+First we try to visualise data of Japan. Create a worksheet and rename it to "Japan".  
+Drag the Tables "Time" to columns and change its format to Month.   
+![](img/sbs01.png){ width=90% }
+
+Then drag the table "Japan(Export)" to Rows and drag table "Japan(Import)" to y-axis as below. Tableau will automatically generate a line graph.
+![](img/sts02.png){ width=90% }
+
+**4. Create a calculated field** 
+
+Go to Analysis-Create calculated fields, and create a measure named "Japan(Balance of Trade)" and formula as "[Japan(Export)]-[Japan(Import)]" as below:
+![](img/sts03.png){ width=90% }
+
+And then drag the generated table "Japan(Balance of Trade)" to the secondary y axis as showed below:
+![](img/sts04.png)
+After that, you should have three-line graph as below. And click the secondary y axis, click "Synchronize Axis" to synchronize the first(left) and secondary(right) axis to make our graph more direct. Since two y axis have same scale, we don't need them both. Click "Show Header" to hide the secondary y axis.
+![](img/sts05.png)
+We want have a bar chart of BoT instead of line chart to show the absolute number of BoT, so go to marks-Sum(Japan(Balance of Trade)), choose Bar. You will have a similar graph as below:
+![](img/sts06.png)
+Now the graph seems nice, but we will color the bar chart to beautify it.  
+Drag "Japan(Balance of Trade)" to Color.
+
+![](img/sts07.png)
+And edit color to change it to "Red-Blue Diverging" and 2 stepped color. 
+![](img/sts08.png)
+**5. Edit x axis**
+
+Delete the title of X axis also. Change the format of x axis to mmm yyy.
+
+![](img/sts12.png){ width=50% }
+
+
+**6. Edit y axis** 
+
+It is very clear that our y axis represents values so we delete the title.
+
+![](img/sts09.png){ width=50% }
+
+Then change the format of y axis to "Currency(Custom)" as blow:
+
+![](img/sts10.png){ width=50% }
+
+**7. Edit Tooltip**  
+Change it as showed below for clarify.
+
+![](img/sts11.png)
+
+**8. Create other five worksheet**
+
+Following step 3 to 7, create same worksheet for other five countries/regions.  
+![](img/sts14.png){ width=90% }
+
+**9. Create a dashboard**
+
+Now we have five separate worksheet, creating a dash board and draging those six worksheet on panel.
+Edit the title and note, we can have a our data visualisation:
+
+![](img/sts13.png){ width=90% }
+
+# 5. Drived Insights
+
+1. Although these six countries are the largest trading countries, the differences between countries are still large. For example, from 2019 to 2020, China has the largest export volume. Its export volume in a single month is as high as 7.97 billion, while Japan’s highest export volume is only 2.31 billion.
+![](img/insight01.png){ width=90% }
+
+2. The import and export situation of each country is also very different. For example, Taiwan is with a typical trade deficit, that is, the net export value is less than 0, while Hong Kong is with a typical trade surplus, that is, the net export value is greater than 0. But we also need to know that the volume of the BoT cannot represent the quality of a region’s economy.  
+![](img/insight02.png){ width=90% }
+
+3. The import and export situation of some countries is relatively stable, while the situation of some countries have huge changes or fluctuations. For example, the United State's BoT turned positive from negative after Apr 2020, due to a sharp drop of imports.  
+![](img/insight03.png){ width=60% }
 
