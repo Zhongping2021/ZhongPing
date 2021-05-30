@@ -29,9 +29,22 @@ This is the original visualisation:
 ![](img/original visualisation.png)
 
 
+**Content:  **
+
+1. Critique of Visualization  
+    1.1 Clarity  
+    1.2 Aesthetic  
+2. Alternative Design  
+    2.1 Draft  
+    2.2 Improvement  
+3. Proposed Visualization  
+4. Step-by-step Guide  
+5. Drived Insights  
 
 
-# 1 Critique of Visualization
+
+
+# 1. Critique of Visualization
 
 ## 1.1 Clarity
 
@@ -70,7 +83,7 @@ It is not clear enough to see the difference between export and import, because 
 The graph contains all info of six countries but we don't really know the focus of this graph. We should use innovations or colors to emphasize the key parts and delete unnecessary information.
 
 
-#  2 Alternative Design
+#  2. Alternative Design
 ## 2.1 draft
 the design is drawn as a draft:
 ![](img/draft.jpg){ width=90% }
