@@ -1,7 +1,7 @@
 ---
 title: "Data Makeover 1 for Data Visualisation"
 description: |
-  This is my data makeover 1 for ISSS608
+  This is data makeover 1 for ISSS608
 author:
   - name: ZHONG PING 
     url: https://www.linkedin.com/in/ping-zhong/
@@ -40,8 +40,6 @@ This is the original visualisation:
 3. Proposed Visualization  
 4. Step-by-step Guide  
 5. Drived Insights  
-
-
 
 
 # 1. Critique of Visualization
