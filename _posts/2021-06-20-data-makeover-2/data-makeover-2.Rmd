@@ -41,34 +41,52 @@ This is the original visualisation:
 
 ## 1.1 Clarity
 
-**1.**
+**1.Lack of coordinate unit and data source**
+
 The coordinate unit is not indicated in the horizontal and vertical coordinates and the title. Although it can be inferred from the comments that it is S Dollar, Billion. But clear labeling obviously makes it easier for readers to understand.
 
-**2.**
+**2.Hard to distinguish from net exports and net imports**
+
 Lack of display of net exports and net imports. The author selected the first place based on net exports and net imports. However, there are neither figures nor reference lines in the figure. It is difficult for readers to see the data of a certain trading partner’s net exports or net imports from the figure. It is therefore difficult to understand what the author chose the first place based on.
 
-**3.**
+**3.No data from graph to support the conclusion**
+
 It is not possible to find a conclusion based on the known data. Below the graph, the author writes the conclusion Since 2009, the value of exports exceeds imports for Singapore's merchandise trade with Mainland China. However, the author can neither draw this conclusion from the graph nor write an external link to support his conclusion.
 
 ## 1.2 Aesthetic
 
-**1.**
+**1. Improper sized shape make it hard to understand**
+
 Because the white center is too small compared to the colored circles, it is difficult to see the specific location of the white center, and it is difficult to find whether the center is at the upper left or lower right of the diagonal, so it is difficult to determine whether the trading partner is a NET EXPORTER Still net importer.
 
-**2.**
+**2.Patterns block each other**
+
 The circle is too large, causing the circle and the circle to block each other, and some circles are blocked by more than 75%.
 
-**3.**
+**3. Unnecessary interaction**
+
  Interaction is almost useless in this picture. We cannot get more or more accurate data through mutual operations.
  
- #  2. Alternative Design
+#  2. Alternative Design
+ 
+ 
 ## 2.1 draft
+
+
 the design is drawn as a draft:
 ![](pictrues/2.png)
+
+
 ## 2.2 Improvement
 
-**1. Add necessary information**
-
+1. Clarify all data in our grapg is Singapore Dollars. Also, I Add data source and reference to our graph.    
+  
+2. Add reference line and difference color and shape pf net exporters and importers. This make it easier for readers to distinguish them.    
+	
+3. Add another graph to show the total merchandise value to help readers understand which country is Singapore's most important trading partner and how Singapore's most important trading partners changed by time.    
+	
+4. Change the size of the shapes represents countries and made them transparent.   
+ 
 # 3. Proposed Visualization
 In this data make over, the poposed visualisation is posted [here](https://public.tableau.com/app/profile/zhong.ping/viz/makeover2_1_16238966092570/MERCHANDISETRADEPERFORMANCEWITHMAJORTRADINGPARTNERS2011-2020_1).
 
@@ -83,7 +101,7 @@ Step1. First we download the data from [*DOS*](https://www.singstat.gov.sg/find-
 
 Step2.   
 Next we select monthly import and export value of each country (104 in total) in 2020. Then we use sum to calculate 2020 import and export value.
-1[](pictrues/sbs2.1.png)
+![](pictrues/sbs2.1.png)
 
 
 And then use convert text to columns to get the country name.
@@ -187,3 +205,12 @@ In the last step, we should create a dashboard and put 3 worksheets on it. Drag 
 
 # 5. Drived Insights
 
+1. Among all trading partners, the most important countries are either big economies: China, US or neighbors like Malaysia, Indonesia. Since 2013, China has been the most important trading partner to Singapore. 
+![](pictrues/insight01.png){width=90%}
+
+
+2. Among top 10 trade partners, Hong Kong  is always the biggest net exporter. United States has been the biggest net import from 2011 to 2017, and after 2017 Taiwan replace US.
+![](pictrues/insight02.png){width=90%}
+
+
+3. Among top 10 significant trading partners, most of them have a quite balance imports and exports value with Singapore except Hong Kong. HK's balance of trade with Singapore is as high as 58m in 2020.
