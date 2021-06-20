@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["1.png","data-makeover-2_files/anchor-4.2.2/anchor.min.js","data-makeover-2_files/bowser-1.9.3/bowser.min.js","data-makeover-2_files/distill-2.2.21/template.v2.js","data-makeover-2_files/jquery-1.11.3/jquery.min.js","data-makeover-2_files/popper-2.6.0/popper.min.js","data-makeover-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","data-makeover-2_files/tippy-6.2.7/tippy-light-border.css","data-makeover-2_files/tippy-6.2.7/tippy.css","data-makeover-2_files/tippy-6.2.7/tippy.umd.min.js","data-makeover-2_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["1.png","data-makeover-2_files/anchor-4.2.2/anchor.min.js","data-makeover-2_files/bowser-1.9.3/bowser.min.js","data-makeover-2_files/distill-2.2.21/template.v2.js","data-makeover-2_files/jquery-1.11.3/jquery.min.js","data-makeover-2_files/popper-2.6.0/popper.min.js","data-makeover-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","data-makeover-2_files/tippy-6.2.7/tippy-light-border.css","data-makeover-2_files/tippy-6.2.7/tippy.css","data-makeover-2_files/tippy-6.2.7/tippy.umd.min.js","data-makeover-2_files/webcomponents-2.0.0/webcomponents.js","pictrues/2.png","pictrues/sbs.png","pictrues/sbs1.png","pictrues/sbs2.1.png","pictrues/sbs2.2.png","pictrues/sbs2.png","pictrues/sbs4.1.png","pictrues/sbs4.2.png","pictrues/sbs4.png","pictrues/sbs5.1.png","pictrues/sbs5.png","pictrues/sbs6.1.png","pictrues/sbs6.2.png","pictrues/sbs6.3.png","pictrues/sbs6.4.png","pictrues/sbs6.png","pictrues/sbs7.1.png","pictrues/sbs7.2.png","pictrues/sbs7.3.png","pictrues/sbs7.4.png","pictrues/sbs7.png","pictrues/sbs8.0.png","pictrues/sbs9.0.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1504,7 +1504,52 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><strong>1.</strong> Because the white center is too small compared to the colored circles, it is difficult to see the specific location of the white center, and it is difficult to find whether the center is at the upper left or lower right of the diagonal, so it is difficult to determine whether the trading partner is a NET EXPORTER Still net importer.</p>
 <p><strong>2.</strong> The circle is too large, causing the circle and the circle to block each other, and some circles are blocked by more than 75%.</p>
 <p><strong>3.</strong> Interaction is almost useless in this picture. We cannot get more or more accurate data through mutual operations.</p>
-<p># 2. Alternative Design ## 2.1 draft the design is drawn as a draft: <img src="" /> {width=90% }</p>
+<p># 2. Alternative Design ## 2.1 draft the design is drawn as a draft: <img src="pictrues/2.png" /> ## 2.2 Improvement</p>
+<p><strong>1. Add necessary information</strong></p>
+<h1 id="proposed-visualization">3. Proposed Visualization</h1>
+<p>In this data make over, the poposed visualisation is posted <a href="https://public.tableau.com/app/profile/zhong.ping/viz/makeover2_1_16238966092570/MERCHANDISETRADEPERFORMANCEWITHMAJORTRADINGPARTNERS2011-2020_1">here</a>.</p>
+<h1 id="step-by-step-guide">4. Step-by-step Guide</h1>
+<p><strong>4.1.Data preparation</strong></p>
+<p>Step1. First we download the data from <a href="https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data"><em>DOS</em></a>. <img src="pictrues/sbs1.png" /></p>
+<p>Step2.<br />
+Next we select monthly import and export value of each country (104 in total) in 2020. Then we use sum to calculate 2020 import and export value. 1<a href="pictrues/sbs2.1.png"></a></p>
+<p>And then use convert text to columns to get the country name. <img src="pictrues/sbs2.png" /> <img src="pictrues/sbs2.2.png" /></p>
+<p>Step3.<br />
+Repeat step2 to calculate yearly imports and exports of all countries from 2011 to 2020. Append them in one sheet and save it. In total there is 1131 rows. <img src="pictrues/sbs.png" /></p>
+<p><strong>4.2.Import data and prepare in Tableau</strong></p>
+<p>Step4.<br />
+Open Tableau, create a new file and drag our data to the panel. <img src="pictrues/sbs4.png" /></p>
+<p>Change data type of “Year” to “Date” and data type of “Trading Partners” to “Geographic Role: Country/Region” <img src="pictrues/sbs4.1.png" /> <img src="pictrues/sbs4.2.png" /></p>
+<p>Step5.<br />
+Now we’ve successfully import data to tableau, next we need to calculate some new fields. Click analysis and click create calculated fields. <img src="pictrues/sbs5.png" /></p>
+<p>We have 4 new fields need to create.<br />
+First one is Total Merchandise Trade Value, which is calculated by [Exports]+[Imports].<br />
+Second is Balance of Trade, which is calculated by [Exports]-[Imports].<br />
+Third one is Modulus of Balance of Trade, which is calculated by ABS(Balance of Trade).<br />
+The last one is reference line, which equals to Exports.<br />
+After we print name and formula and click ok.<br />
+<img src="pictrues/sbs5.1.png" /> Then we have all data prepared.</p>
+<p><strong>4.3. Create first worksheet graph</strong></p>
+<p>Step6.<br />
+Now we are going to create worksheet “Total Merchandise Trade Value Map”. Drag “Trading Partners” to panel and release. Tableau will automatically create a world map and point the countries. Note there are some countries Tableau cannot recognize, we need to click the “13 Unknown” on the right down side, and edit those countries to standardized name manually. <img src="pictrues/sbs6.png" /> <img src="pictrues/sbs6.4.png" /></p>
+<p>Then drag “year” to Filter. Then choose year and click next. Last, show the filter and choose it to be single value(slider). <img src="pictrues/sbs6.1.png" /></p>
+<p>Then to color all countries by their total merchandise trade. We drag “Total Merchandise Trade Value” to “color” and release. Then we click edit color on the right and then choose our color. Here I use 4 stepped color, more darker the color is, higher this country’s total merchandise value is. <img src="pictrues/sbs6.2.png" /></p>
+<p>Then we are going to modify its tooltip to show more information to readers. Drag “Exports” and “Imports” to tooltip and then double click tooltip, edit text and color Imports to green and Exports to blue. <img src="pictrues/sbs6.3.png" /></p>
+<p><strong>4.4. Create second worksheet graph</strong></p>
+<p>Step7.<br />
+Now we are going to create another worksheet for bobble chart. Same as before, we drag Exports to Columns, Imports to Rows. Then drag Year to Filters. This time we notice there is too many countries on our chart which is not easy to read. So we drag Trading Partners to Filter also so we can choose countries we need. Here I choose top 10 total merchandise value countries. <img src="pictrues/sbs7.png" /></p>
+<p>To make it easier for readers to distinguish net exporter and importers, we color shapes by their balance of trade. Drag “Balance of Trade” to “Color”. Click Stepped Color by 2 steps and edit palette to green and blue. <img src="pictrues/sbs7.2.png" /></p>
+<p>Also we can use different shape to distinguish net importers and exporter. Double click shape and select all negative value and click left triangle and select all positive value and click right triangle. <img src="pictrues/sbs7.1.png" /></p>
+<p>And I also think adding a coordinate angle bisect as reference line would help to read graph. So drag “Reference line” to Rows and release. You will get a incomplete angle bisect, so click this line and click trend lines/show trend lines. <img src="pictrues/sbs7.3.png" /></p>
+<p>Then our second graph is almost done. We can done some extra work to beautify it. I add “Trading Partners” to “Label” to show each shape’s name. And I editing its tooltip as same as I did in first graph. Also, I add some Insight below the title.<br />
+In the end, the second graph is like this. <img src="pictrues/sbs7.4.png" /></p>
+<p><strong>4.5.Create simple bar graph</strong></p>
+<p>Step8.<br />
+To add direct understanding of the imports and exports of these 10 countries in second chart. I also create a simple bar chart. This bar chart is simple. So be short, drag “Total merchandise value” and “Imports” to columns, drag “Trading Partners” to rows. Adding “Trading Partners” and “Year” as we did in second graph. Editing it color the way you like, its pretty much the same as graph 2 also. Then editing tooltip and you will get a graph as shown: <img src="pictrues/sbs8.0.png" /></p>
+<p><strong>4.6.Create a dashboard</strong></p>
+<p>Step9.<br />
+In the last step, we should create a dashboard and put 3 worksheets on it. Drag “Text” from left down part “Objects” to add insights to the dashboard. I also add reference I use in this graph. <img src="pictrues/sbs9.0.png" /></p>
+<h1 id="drived-insights">5. Drived Insights</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
